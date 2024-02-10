@@ -1,0 +1,12 @@
+---
+rspamd:
+  password: "password"
+  enable_password: "password"
+  asn_whitelists:
+    - 714
+    - 23816
+    - 24572
+  actions:
+    reject: 15
+    add_header: 6
+    greylist: 4

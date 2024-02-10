@@ -1,0 +1,5 @@
+{% if rspamd.actions is defined %}
+{% for key, value in rspamd.actions.items() %}
+{{ key }} = {{ value }};
+{% endfor %}
+{% endif %}

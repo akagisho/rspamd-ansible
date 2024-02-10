@@ -1,0 +1,5 @@
+{% if rspamd.asn_whitelists is defined %}
+{% for asn in rspamd.asn_whitelists %}
+{{ asn }}
+{% endfor %}
+{% endif %}
