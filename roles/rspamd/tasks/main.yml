@@ -34,3 +34,7 @@
   with_fileglob:
     - ../templates/etc/rspamd/local.d/*.j2
   notify: restart rspamd
+
+- name: do config test
+  shell: rspamadm configtest
+  changed_when: False
