@@ -1,9 +1,30 @@
 ---
+- name: put apt key
+  copy:
+    src: etc/apt/trusted.gpg.d/rspamd.asc
+    dest: /etc/apt/trusted.gpg.d/rspamd.asc
+
+- name: get ubuntu code name
+  shell: lsb_release -c -s
+  register: result
+  changed_when: False
+
+- name: set ubuntu code name
+  set_fact:
+    ubuntu_codename: "{{ result.stdout }}"
+  changed_when: False
+
+- name: put apt source.list
+  template:
+    src: etc/apt/sources.list.d/rspamd.list.j2
+    dest: /etc/apt/sources.list.d/rspamd.list
+
 - name: install packages
   apt:
     name:
       - rspamd
       - unbound
+    state: latest
     update_cache: yes
 
 - name: put config files
