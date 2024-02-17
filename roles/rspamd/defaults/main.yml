@@ -10,3 +10,5 @@ rspamd:
     reject: 15
     add_header: 6
     greylist: 4
+  history_redis:
+    nrows: 200
