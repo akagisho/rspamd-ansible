@@ -30,3 +30,8 @@
 - name: do config test
   shell: rspamadm configtest
   changed_when: False
+
+- name: put logrotate config file
+  template:
+    src: etc/logrotate.d/rspamd.j2
+    dest: /etc/logrotate.d/rspamd
