@@ -31,6 +31,12 @@
   shell: rspamadm configtest
   changed_when: False
 
+- name: chmod log directory
+  file:
+    path: /var/log/rspamd
+    state: directory
+    mode: "0755"
+
 - name: put logrotate config file
   template:
     src: etc/logrotate.d/rspamd.j2
